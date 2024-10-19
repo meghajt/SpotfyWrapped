@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
@@ -6,7 +5,6 @@ from spotifywrapped.forms import CustomUserCreationForm
 from django.views.decorators.cache import cache_control
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
 from django.contrib import messages
 
 
@@ -54,3 +52,13 @@ def delete_account(request):
         return redirect('landing')
 
     return render(request, 'delete_account.html')
+
+def profile(request):
+    user = request.user
+    context = {
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email': user.email,
+    }
+    return render(request, 'profile.html', context)
+
