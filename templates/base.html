@@ -40,8 +40,7 @@
         .form-switch {
             display: flex;
             align-items: center;
-            margin-right: 1rem;
-            margin-top: 0.5rem; /* Adjust margin-top for spacing */
+            margin: 0; 
         }
 
         .form-switch input[type="checkbox"] {
@@ -80,8 +79,18 @@
 
         @media (max-width: 768px) {
             .navbar-collapse {
-                margin-top: 0.5rem; /* Space added for mobile */
+                margin-top: 0.5rem; 
             }
+        }
+
+        .navbar {
+            justify-content: space-between; 
+        }
+
+        .dark-mode-label {
+            margin: 0 auto; 
+            text-align: center; 
+            margin-right: 20px;
         }
     </style>
 </head>
@@ -97,14 +106,16 @@
                     <div class="form-switch me-2">
                         <input type="checkbox" id="dark-mode-toggle">
                         <label class="toggle-label" for="dark-mode-toggle"></label>
-                        <span class="ms-2">Dark Mode</span>
                     </div>
+                    <span class="dark-mode-label">Dark Mode</span>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Settings
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
-                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                            </li>
                             <li>
                                 <form id="logoutForm" action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}
@@ -113,6 +124,9 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{% url 'delete_account' %}">Delete Account</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{% url 'contact_us' %}">Contact Us</a>
                             </li>
                         </ul>
                     </div>

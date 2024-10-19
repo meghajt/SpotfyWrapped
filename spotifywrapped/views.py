@@ -53,6 +53,7 @@ def delete_account(request):
 
     return render(request, 'delete_account.html')
 
+@login_required()
 def profile(request):
     user = request.user
     context = {
@@ -61,4 +62,8 @@ def profile(request):
         'email': user.email,
     }
     return render(request, 'profile.html', context)
+
+@login_required()
+def contact_us(request):
+    return render(request, 'contact_us.html')
 
