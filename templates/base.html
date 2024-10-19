@@ -20,19 +20,19 @@
         .navbar-light {
             background-color: #007bff; 
         }
-        
+
         .navbar-light .navbar-brand {
             color: #ffffff; 
         }
-        
+
         .navbar-light .navbar-brand:hover {
             color: #f0f0f0; 
         }
-        
+
         .dark-mode .navbar-light {
             background-color: #343a40; 
         }
-        
+
         .dark-mode .navbar-light .navbar-brand {
             color: #1db954; 
         }
@@ -41,6 +41,7 @@
             display: flex;
             align-items: center;
             margin-right: 1rem;
+            margin-top: 0.5rem; /* Adjust margin-top for spacing */
         }
 
         .form-switch input[type="checkbox"] {
@@ -76,6 +77,12 @@
         .form-switch input[type="checkbox"]:checked + .toggle-label::after {
             transform: translateX(26px);
         }
+
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                margin-top: 0.5rem; /* Space added for mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -87,7 +94,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="ms-auto d-flex align-items-center"> 
-                    <div class="form-switch">
+                    <div class="form-switch me-2">
                         <input type="checkbox" id="dark-mode-toggle">
                         <label class="toggle-label" for="dark-mode-toggle"></label>
                         <span class="ms-2">Dark Mode</span>
