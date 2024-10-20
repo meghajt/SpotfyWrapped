@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
-from spotifywrapped.forms import CustomUserCreationForm
+from wrapped.forms import CustomUserCreationForm
 from django.views.decorators.cache import cache_control
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
